@@ -38,7 +38,7 @@ public class ApiResponseTransformFilter extends AbstractGatewayFilterFactory<Api
     public GatewayFilter apply(Config config) {
         return new OrderedGatewayFilter((exchange, chain) -> {
             ServerHttpResponse originalResponse = exchange.getResponse();
-//            DataBufferFactory bufferFactory = originalResponse.bufferFactory();
+
 
 
 

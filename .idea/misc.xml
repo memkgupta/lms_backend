@@ -10,7 +10,17 @@
         <option value="$PROJECT_DIR$/user_service/pom.xml" />
         <option value="$PROJECT_DIR$/api_gateway/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/organisation_service/pom.xml" />
+        <option value="$PROJECT_DIR$/course_service/pom.xml" />
+        <option value="$PROJECT_DIR$/authorisation_service/pom.xml" />
+        <option value="$PROJECT_DIR$/lms-common/pom.xml" />
+        <option value="$PROJECT_DIR$/common-lib/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/lms-common/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
