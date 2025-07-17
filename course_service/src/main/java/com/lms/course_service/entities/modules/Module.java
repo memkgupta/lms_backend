@@ -19,7 +19,7 @@ public class Module extends BaseEntity {
     private String title;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "course_id" )
     private Course course;
 
 
@@ -31,7 +31,7 @@ public class Module extends BaseEntity {
     @ElementCollection
     private List<Long> moderators_assigned;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
     @JoinColumn(name = "plan_id")
     private Plan plan;
 }

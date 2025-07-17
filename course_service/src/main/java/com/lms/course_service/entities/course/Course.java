@@ -3,6 +3,7 @@ package com.lms.course_service.entities.course;
 import com.lms.commonlib.annotations.DateRangeValid;
 import com.lms.commonlib.utils.DateRangeContainer;
 import com.lms.course_service.entities.BaseEntity;
+import com.lms.course_service.entities.course.schedule.Schedule;
 import com.lms.course_service.entities.modules.Module;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -29,8 +30,9 @@ public class Course extends BaseEntity {
     @Column(name = "admin_id")
     private Long adminId;
 
-    @Column(name = "schedule_id")
-    private Long scheduleId;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "schedule_id")
+    private Schedule schedule;
 
     private boolean isPublished;
     private LocalDate startDate;
@@ -45,7 +47,7 @@ public class Course extends BaseEntity {
 
 
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course",orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Module> modules;
 }
 

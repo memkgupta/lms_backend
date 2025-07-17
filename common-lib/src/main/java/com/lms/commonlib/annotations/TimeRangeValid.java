@@ -1,6 +1,6 @@
 package com.lms.commonlib.annotations;
 
-import com.lms.commonlib.utils.DateRangeValidator;
+import com.lms.commonlib.utils.TimeRangeValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
@@ -9,10 +9,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = DateRangeValidator.class) // Link to the validator logic
+@Constraint(validatedBy = TimeRangeValidator.class)
 @Target({ ElementType.TYPE }) // Apply to the whole class
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DateRangeValid {
-    String message() default "End date must be after start date";
+public @interface TimeRangeValid {
+    String message() default "End time must be after start time";
 
 }

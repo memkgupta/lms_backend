@@ -14,15 +14,12 @@ import java.util.List;
 @Data
 @Table(name = "Plan")
 public class Plan extends BaseEntity {
-    @OneToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
-    @OneToOne
-    @JoinColumn(name = "module_id")
+    @Column(name = "course_id")
+    private Long course_id;
+    @OneToOne(mappedBy = "plan")
     private Module module;
 
-    @OneToMany
-    @JoinColumn(name = "")
+    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Chapter> chapters;
 
     private int currentChapter;

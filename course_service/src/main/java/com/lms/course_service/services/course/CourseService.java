@@ -1,5 +1,7 @@
 package com.lms.course_service.services.course;
 
+import com.lms.commonlib.EntityService;
+import com.lms.commonlib.annotations.HandlesEntity;
 import com.lms.commonlib.exceptions.BadRequestException;
 import com.lms.commonlib.exceptions.EntityNotFound;
 import com.lms.course_service.dtos.request.CourseRequestDTO;
@@ -21,7 +23,8 @@ import static com.lms.course_service.utils.Utils.getNullPropertyNames;
 
 @Service
 @RequiredArgsConstructor
-public class CourseService {
+@HandlesEntity(Course.class)
+public class CourseService implements EntityService {
     private final CourseRepository courseRepository;
     private final Set<String> ALLOWED_UPDATE_FIELDS =Set.of("title","description","startDate","endDate","price","type","maxEnrollments");
 

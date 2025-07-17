@@ -1,10 +1,12 @@
 package com.lms.course_service.services.course;
 
+import com.lms.commonlib.annotations.HandlesEntity;
 import com.lms.commonlib.exceptions.BadRequestException;
 import com.lms.commonlib.exceptions.EntityNotFound;
 import com.lms.commonlib.utils.EntityUtils;
 import com.lms.course_service.dtos.request.ModuleRequestDTO;
 import com.lms.course_service.entities.modules.Module;
+import com.lms.course_service.entities.modules.plan.Plan;
 import com.lms.course_service.repositories.course.module.ModuleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -19,6 +21,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
+@HandlesEntity(Module.class)
 public class ModuleService {
     private final CourseService courseService;
     private final ModuleRepository moduleRepository;
@@ -95,4 +98,8 @@ public class ModuleService {
     }
 
 
+    public void attachPlan(Plan plan, Module module) {
+        module.setPlan(plan);
+        moduleRepository.save(module);
+    }
 }
